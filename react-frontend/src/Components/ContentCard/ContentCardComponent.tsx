@@ -1,7 +1,28 @@
-function MainComponent() {
+import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
+
+function ContentCardComponent() {
+  type ContentCard = {
+    id: number;
+    title: string;
+    content: string;
+  };
+
+  // const [count, setCount] = useState<number>(0);
+  const [contentCards, setContentCards] = useState<ContentCard[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/contentCards')
+      .then((response) => response.json())
+      .then((data) => setContentCards(data));
+  }, []);
+
+  console.log('Users: ' + contentCards);
+
   return (
     <main>
       <h2>Main</h2>
+      <Button variant='contained'>Hello world</Button>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
         vehicula, massa at aliquam sagittis, erat augue lacinia risus, in tempus
@@ -21,4 +42,4 @@ function MainComponent() {
   );
 }
 
-export default MainComponent;
+export default ContentCard;

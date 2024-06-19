@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
 import './App.css';
 
-import HeaderComponent from './Components/HeaderComponent';
-import MainComponent from './Components/MainComponent';
-import FooterComponent from './Components/FooterComponent';
+import MainComponent from './Layout/MainComponent';
 
 function App() {
   type User = {
@@ -13,7 +9,6 @@ function App() {
     name: string;
   };
 
-  // const [count, setCount] = useState<number>(0);
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
@@ -26,19 +21,21 @@ function App() {
 
   return (
     <>
-      <HeaderComponent />
-      <h1>Users</h1>
-      {/* <p>{users}</p> */}
-
-      {users.map((user) => (
-        <li key={user.id}>{user.name}</li>
-      ))}
-
-      <MainComponent />
-
-      <FooterComponent />
+      <MainComponent></MainComponent>
     </>
   );
 }
 
 export default App;
+
+// <HeaderComponent />
+//       <h1>Users</h1>
+//       {/* <p>{users}</p> */}
+
+//       {users.map((user) => (
+//         <li key={user.id}>{user.name}</li>
+//       ))}
+
+//       <MainComponent />
+
+//       <FooterComponent />

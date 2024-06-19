@@ -5,8 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const users_json_1 = __importDefault(require("./dummydata/users.json"));
+const contentCard = require('./routes/contentCard');
+const todos = require('./routes/todos');
 const app = (0, express_1.default)();
 const port = 3000;
+app.use(contentCard);
+app.use(todos);
 app.get('/', (req, res) => {
     res.send('Hello World 1 !');
 });
